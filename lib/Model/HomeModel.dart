@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 class HomeModel {
   bool? status ;
   HomeModelData? data;
@@ -17,11 +19,11 @@ class HomeModelData {
   {
 
     json['banners'].forEach((element){
-      banners.add(element);
+      banners.add(BannersModel.fromJson(element));
     });
 
     json['products'].forEach((element){
-      products.add(element);
+      products.add(ProductsModel.fromJson(element));
     });
   }
 
@@ -47,6 +49,7 @@ class ProductsModel {
   dynamic discount;
   String? image;
   String? name ;
+  String? description;
   bool? inFavorites;
   bool? inCart;
 
@@ -57,6 +60,7 @@ class ProductsModel {
     discount = json['discount'];
     image = json['image'];
     name = json['name'];
+    description = json['description'];
     inFavorites = json['in_favorites'];
     inCart = json['in_cart'];
   }

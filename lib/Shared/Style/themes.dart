@@ -9,10 +9,10 @@ ThemeData lightTheme = ThemeData(
   appBarTheme: AppBarTheme(
     backwardsCompatibility: false,
     systemOverlayStyle: SystemUiOverlayStyle(
-      statusBarColor: Colors.white,
+      statusBarColor: Colors.grey[200],
       statusBarIconBrightness: Brightness.dark,
     ),
-    backgroundColor: Colors.white,
+    backgroundColor: Colors.grey[200],
     elevation: 0.0,
     titleTextStyle: TextStyle(
       color: defaultColor,
@@ -24,17 +24,16 @@ ThemeData lightTheme = ThemeData(
       color: Colors.black,
       size: 28.0,
     ),
-
   ),
-  scaffoldBackgroundColor: Colors.white,
+  scaffoldBackgroundColor: Colors.grey[200],
   bottomNavigationBarTheme: BottomNavigationBarThemeData(
-    backgroundColor: Colors.white,
+    backgroundColor: Colors.grey[200],
     elevation: 20.0,
     selectedItemColor: defaultColor,
     unselectedItemColor: Colors.grey,
   ),
   textTheme: TextTheme(
-    headline1: defaultTextStyle,
+    headline1: defaultTextStyleLight,
     ),
 );
 
@@ -68,6 +67,6 @@ ThemeData darkTheme = ThemeData(
     unselectedItemColor: Colors.grey,
   ),
   textTheme: TextTheme(
-    headline1: defaultTextStyle,
+    headline1: defaultTextStyleDark,
   ),
 );

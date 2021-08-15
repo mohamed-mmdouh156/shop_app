@@ -6,6 +6,8 @@ import 'package:shop_app/Layout/OnBoarding/OnBoardingScreen.dart';
 import 'package:shop_app/Layout/ShopLayout/ShopCubit/ShopState.dart';
 import 'package:shop_app/Layout/ShopLayout/ShopLayout.dart';
 import 'package:shop_app/Module/LoginScreen/LoginScreen.dart';
+import 'package:shop_app/Module/RegisterScreen/RegisterCubit/cubit.dart';
+import 'package:shop_app/Module/SearchScreen/SearchCubit/cubit.dart';
 import 'package:shop_app/Shared/Network/local/cacheHelper.dart';
 import 'package:shop_app/Shared/Network/remote/DioHelper/DioHelper.dart';
 import 'package:shop_app/Shared/Style/colors.dart';
@@ -22,6 +24,7 @@ void main() async {
 
   bool onBoarding = CacheHelper.getData(key: 'onBoarding');
   token = CacheHelper.getData(key: 'token');
+  print(token);
   Widget widget;
 
   if (onBoarding != null) {
@@ -56,7 +59,13 @@ class MyApp extends StatelessWidget {
           create: (BuildContext context) => LoginCubit(),
         ),
         BlocProvider(
-          create: (BuildContext context) => ShopCubit()..getHomeData(),
+          create: (BuildContext context) => ShopCubit()..getHomeData()..getCategoriesData()..getFavoriteData()..getUserData(),
+        ),
+        BlocProvider(
+          create: (BuildContext context) => RegisterCubit(),
+        ),
+        BlocProvider(
+          create: (BuildContext context) => SearchCubit(),
         ),
       ],
       child: BlocConsumer<ShopCubit, ShopStates>(

@@ -42,6 +42,7 @@ Widget defaultFormField({
   final IconData? sufixIcon,
   final Function()? sufixPressed,
   required final String? Function(String?)? validator,
+  final Function(String?)? onSubmit,
   final TextInputType textType = TextInputType.text,
   final Function()? onTap,
   final bool isPassword = false,
@@ -61,6 +62,7 @@ Widget defaultFormField({
     keyboardType: textType,
     validator: validator,
     onTap: onTap,
+    onFieldSubmitted: onSubmit,
     obscureText: isPassword,
   );
 }
@@ -99,7 +101,7 @@ void showToast ({
 {
   Fluttertoast.showToast(
     msg: text,
-    toastLength: Toast.LENGTH_SHORT,
+    toastLength: Toast.LENGTH_LONG,
     gravity: ToastGravity.BOTTOM,
     timeInSecForIosWeb: 5,
     backgroundColor: chooseToastColor(state),

@@ -7,7 +7,9 @@ import 'package:shop_app/Module/LoginScreen/LoginCubit/cubit.dart';
 import 'package:shop_app/Module/LoginScreen/LoginCubit/state.dart';
 import 'package:shop_app/Module/RegisterScreen/RegisterScreen.dart';
 import 'package:shop_app/Shared/Companent/companents.dart';
+import 'package:shop_app/Shared/Companent/constants.dart';
 import 'package:shop_app/Shared/Network/local/cacheHelper.dart';
+import 'package:shop_app/Shared/Style/colors.dart';
 
 
 class LoginScreen extends StatelessWidget {
@@ -30,8 +32,11 @@ class LoginScreen extends StatelessWidget {
                   text: state.loginModel.message!,
                   state: ToastState.SUCCESS,
               );
-              CacheHelper.saveData(key: 'token', value: state.loginModel.data!.token).then((value)
+              CacheHelper.saveData(
+                  key:'token',
+                  value: state.loginModel.data!.token).then((value)
               {
+                token = state.loginModel.data!.token!;
                 navigateAndRemove(
                   context: context,
                   widget: ShopLayout(),
@@ -50,8 +55,7 @@ class LoginScreen extends StatelessWidget {
       builder: (context , state){
         return Scaffold(
           appBar: AppBar(),
-          body: Center
-            (
+          body: Center(
             child: SingleChildScrollView(
               child: Container(
                 padding: EdgeInsets.all(20.0),
@@ -69,13 +73,14 @@ class LoginScreen extends StatelessWidget {
                         ),
                       ),
                       SizedBox(
-                        height: 70.0,
+                        height: 50.0,
                       ),
                       Text(
                         'LOGIN',
                         style: TextStyle(
                           fontSize: 32.0,
                           fontWeight: FontWeight.bold,
+                          color: defaultColor,
                         ),
                       ),
                       SizedBox(
@@ -99,7 +104,8 @@ class LoginScreen extends StatelessWidget {
                             if(value!.isEmpty){
                               return 'please enter email address';
                             }
-                          }
+                          },
+                          textType: TextInputType.emailAddress,
                       ),
                       SizedBox(
                         height: 15.0,

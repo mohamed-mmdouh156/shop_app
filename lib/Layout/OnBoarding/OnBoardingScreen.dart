@@ -20,18 +20,18 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
 
   List<BoardingModel> boarding = [
     BoardingModel(
-        title: 'screen 1',
-        body: 'screen body 1',
+        title: 'Choose your product',
+        body: 'There are more than 1,000 brands of men\'s and women\'s shoes and clothing in the catalog.',
         image: "assets/images/shopping_card.png",
     ),
     BoardingModel(
-      title: 'screen 2',
-      body: 'screen body 2',
+      title: 'Add to card',
+      body: 'Just 2 clicks and you can buy all the fashion news with home delivery',
       image: "assets/images/shopping_card2.png",
     ),
     BoardingModel(
-      title: 'screen 3',
-      body: 'screen body 3',
+      title: 'Pay by card',
+      body: 'The order can be paid by credit card or in cash at the time of delivery',
       image: "assets/images/shopping_card3.png",
     ),
   ];

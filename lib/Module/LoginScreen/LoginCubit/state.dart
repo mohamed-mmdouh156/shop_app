@@ -16,6 +16,7 @@ class AppLoginErrorState extends LoginStates {
   AppLoginErrorState(this.error);
 }
 
+
 class AppLoginChangePasswordState extends LoginStates{}
 
 

@@ -6,6 +6,7 @@ import 'package:shop_app/Module/LoginScreen/LoginScreen.dart';
 import 'package:shop_app/Module/SearchScreen/SearchScreen.dart';
 import 'package:shop_app/Shared/Companent/companents.dart';
 import 'package:shop_app/Shared/Network/local/cacheHelper.dart';
+import 'package:shop_app/Shared/Style/colors.dart';
 
 class ShopLayout extends StatelessWidget {
   const ShopLayout({Key? key}) : super(key: key);
@@ -20,28 +21,24 @@ class ShopLayout extends StatelessWidget {
 
         return Scaffold(
           appBar: AppBar(
+            leading: Container(
+              width: 20.0,
+              height: 20.0,
+              padding: EdgeInsets.all(7.0),
+              child: Image(
+                image: AssetImage('assets/images/shopping_card.png'),
+              ),
+            ),
             title: Text(
                 'Shop'
             ),
             actions: [
-              TextButton(
-                onPressed: (){
-                  CacheHelper.removeData(key:'token').then((value)
-                  {
-                    if(value == true)
-                    {
-                      navigateAndRemove(context: context, widget: LoginScreen(),);
-                    }
-                  });
-                },
-                child: Text(
-                    'Sign out'
-                ),
-              ),
               IconButton(
                   onPressed: ()=>navigateTo(context: context, widget: SearchScreen()),
                   icon: Icon(
                     Icons.search,
+                    size: 28.0,
+                    color: defaultColor,
                   ),
               ),
             ],
